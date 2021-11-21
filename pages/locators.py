@@ -20,6 +20,5 @@ class YaPictPageLocators:
     IMAGES_FIRST_IMAGE = (By.CLASS_NAME, "serp-item_pos_0")
 
     SLIDER_IMG_IS_OPENED = (By.CLASS_NAME, "MMImage-Preview")
-    SLIDER_IMG_SOURCE = (By.CLASS_NAME, "MMImage-Origin")
     SLIDER_FORWARD_BUTTON = (By.CLASS_NAME, "MediaViewer-ButtonNext")
     SLIDER_BACKWARD_BUTTON = (By.CLASS_NAME, "MediaViewer-ButtonPrev")

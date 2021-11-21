@@ -4,14 +4,14 @@ from pages.ya_images_page import YaPictPage
 from pages.locators import LINK, YaSearchPageLocators, YaPictPageLocators
 
 
-# @pytest.mark.skip
+@pytest.mark.skip
 def test_images_link_presence(browser, link=LINK):
     page = YaSearchPage(browser, link)
     page.open()
     page.should_be_yandex_images_link()
 
 
-# @pytest.mark.skip
+@pytest.mark.skip
 def test_yandex_images_is_opened(browser, link=LINK):
     page = YaPictPage(browser, link)
     page.open()
@@ -20,7 +20,7 @@ def test_yandex_images_is_opened(browser, link=LINK):
     page.should_go_to_images_url()
 
 
-# @pytest.mark.skip
+@pytest.mark.skip
 def test_first_images_category_is_opened(browser, link=LINK):
     page = YaPictPage(browser, link)
     page.open()
@@ -31,7 +31,7 @@ def test_first_images_category_is_opened(browser, link=LINK):
     page.first_category_should_be_opened(curl)
 
 
-# @pytest.mark.skip
+@pytest.mark.skip
 def test_first_images_category_search_text_is_correct(browser, link=LINK):
     page = YaPictPage(browser, link)
     page.open()
@@ -42,7 +42,7 @@ def test_first_images_category_search_text_is_correct(browser, link=LINK):
     page.should_be_correct_text_in_search_input(search_text)
 
 
-# @pytest.mark.skip
+@pytest.mark.skip
 def test_first_image_of_category_is_opened(browser, link=LINK):
     page = YaPictPage(browser, link)
     page.open()
@@ -61,9 +61,9 @@ def test_image_is_changed_on_forward_button_click(browser, link=LINK):
     browser.switch_to.window(browser.window_handles[1])
     page.get_element(*YaPictPageLocators.IMAGES_FIRST_CATEGORY).click()
     page.get_element(*YaPictPageLocators.IMAGES_FIRST_IMAGE).click()
-    first_img_src = page.get_element(*YaPictPageLocators.SLIDER_IMG_SOURCE).get_attribute('src')
+    first_img_src = page.get_element(*YaPictPageLocators.SLIDER_IMG_IS_OPENED).get_attribute('src')
     page.get_element(*YaPictPageLocators.SLIDER_FORWARD_BUTTON).click()
-    current_img_src = page.get_element(*YaPictPageLocators.SLIDER_IMG_SOURCE).get_attribute('src')
+    current_img_src = page.get_element(*YaPictPageLocators.SLIDER_IMG_IS_OPENED).get_attribute('src')
     page.picture_should_change_on_fw_button_clicked(first_img_src, current_img_src)
 
 
@@ -75,8 +75,8 @@ def test_image_is_get_back_on_backward_button_click(browser, link=LINK):
     browser.switch_to.window(browser.window_handles[1])
     page.get_element(*YaPictPageLocators.IMAGES_FIRST_CATEGORY).click()
     page.get_element(*YaPictPageLocators.IMAGES_FIRST_IMAGE).click()
-    first_img_src = page.get_element(*YaPictPageLocators.SLIDER_IMG_SOURCE).get_attribute('src')
+    first_img_src = page.get_element(*YaPictPageLocators.SLIDER_IMG_IS_OPENED).get_attribute('src')
     page.get_element(*YaPictPageLocators.SLIDER_FORWARD_BUTTON).click()
     page.get_element(*YaPictPageLocators.SLIDER_BACKWARD_BUTTON).click()
-    current_img_src = page.get_element(*YaPictPageLocators.SLIDER_IMG_SOURCE).get_attribute('src')
+    current_img_src = page.get_element(*YaPictPageLocators.SLIDER_IMG_IS_OPENED).get_attribute('src')
     page.picture_should_get_back_to_the_same_on_bw_button_clicked(first_img_src, current_img_src)
